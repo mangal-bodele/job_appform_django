@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Person</title>
+{% endblock %}
+{% block content %}
+    <div class="col-4 m-auto border border-4 mt-5 p-3">
+        <h3 class="text-center text-warning">Person Form</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="book" class="btn btn-primary col-5">
+            <input type="reset" value="cancel" class="btn btn-danger float-end col-5">
+        </form>
+    </div>
+{% endblock %}
+</html>

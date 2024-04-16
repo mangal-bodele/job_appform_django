@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Title</title>
+{% endblock %}
+{% block content %}
+ <table class="mt-5 m-auto border border-3 p-3 col-8 text-center">
+     <thead class="p-3 bg-dark text-white">
+        <tr>
+            <th>ID</th>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th>MOBILE</th>
+            <th>DOB</th>
+            <th>GENDER </th>
+            <th>JOB TITLE</th>
+            <th>EXPERIENCE</th>
+            <th colspan="2">ACTION</th>
+        </tr>
+
+     </thead>
+     <tbody>
+            {% for job in jobs %}
+                <tr>
+                    <td>{{ job.id }}</td>
+                    <td>{{ job.first_name }}</td>
+                    <td>{{ job.last_name }}</td>
+                    <td>{{ job.mobile_number }}</td>
+                    <td>{{ job.dob }}</td>
+                    <td>{{ job.gender }}</td>
+                    <td>{{ job.job_title }}</td>
+                    <td>{{ job.experience }}</td>
+                    <td>
+                        <a href="{% url 'update_url' job.id %}">
+                            <button><i class="bi bi-pencil-square"></i>&nbspUpdate</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{% url 'cancel_url' job.id %}">
+                                    <button><i class="bi bi-pencil-square"></i>&nbspCnacel</button>
+                        </a>
+                    </td>
+                {% endfor %}
+            </tr>
+     </tbody>
+ </table>
+{% endblock %}
+

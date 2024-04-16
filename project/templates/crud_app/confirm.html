@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Title</title>
+{% endblock %}
+{% block content %}
+        <h1>do you really want to cancel job</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button>YES</button>
+            <a href="{% url 'show_url' %}">
+                <button type="button">NO</button>
+            </a>
+        </form>
+
+{% endblock %}
